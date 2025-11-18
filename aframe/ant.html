@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>3D Ant – A-Frame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #f2f2f2" renderer="antialias: true; shadowMap.enabled: true">
+      <!-- Camera & controls -->
+      <a-entity position="0 1.4 3">
+        <a-camera wasd-controls="acceleration: 10" look-controls></a-camera>
+      </a-entity>
+
+      <!-- Lights -->
+      <a-entity light="type: ambient; color: #ffffff; intensity: 0.4"></a-entity>
+      <a-entity light="type: directional; color: #ffffff; intensity: 0.9"
+                position="2 4 1" cast-shadow="true"></a-entity>
+
+      <!-- Ground -->
+      <a-plane rotation="-90 0 0"
+               width="8" height="8"
+               color="#8b6b4a"
+               shadow="receive: true"></a-plane>
+
+      <!-- Ant group -->
+      <a-entity id="ant"
+                position="0 0.15 0"
+                shadow="cast: true"
+                animation="property: position;
+                           to: 0 0.15 -1.2;
+                           dir: alternate;
+                           dur: 4000;
+                           loop: true;
+                           easing: easeInOutSine">
+
+        <!-- Body segments -->
+        <!-- Head -->
+        <a-sphere radius="0.12"
+                  position="0 0.13 -0.25"
+                  color="#5b3514"></a-sphere>
+
+        <!-- Thorax -->
+        <a-sphere radius="0.14"
+                  position="0 0.13 -0.05"
+                  color="#4b2810"></a-sphere>
+
+        <!-- Abdomen -->
+        <a-sphere radius="0.20"
+                  position="0 0.13 0.25"
+                  color="#3a1c0c"></a-sphere>
+
+        <!-- Eyes -->
+        <a-sphere radius="0.025"
+                  position="0.06 0.15 -0.27"
+                  color="#111"></a-sphere>
+        <a-sphere radius="0.025"
+                  position="-0.06 0.15 -0.27"
+                  color="#111"></a-sphere>
+
+        <!-- Antennae -->
+        <a-cylinder radius="0.01" height="0.25"
+                    position="0.07 0.23 -0.31"
+                    rotation="45 0 40"
+                    color="#3a1c0c"></a-cylinder>
+        <a-cylinder radius="0.01" height="0.25"
+                    position="-0.07 0.23 -0.31"
+                    rotation="45 0 -40"
+                    color="#3a1c0c"></a-cylinder>
+
+        <!-- Legs: three on each side -->
+        <!-- Front pair -->
+        <a-cylinder radius="0.012" height="0.35"
+                    position="0.16 0.07 -0.15"
+                    rotation="75 0 15"
+                    color="#3a1c0c"></a-cylinder>
+        <a-cylinder radius="0.012" height="0.35"
+                    position="-0.16 0.07 -0.15"
+                    rotation="75 0 -15"
+                    color="#3a1c0c"></a-cylinder>
+
+        <!-- Middle pair -->
+        <a-cylinder radius="0.012" height="0.37"
+                    position="0.18 0.07 0.00"
+                    rotation="80 0 10"
+                    color="#3a1c0c"></a-cylinder>
+        <a-cylinder radius="0.012" height="0.37"
+                    position="-0.18 0.07 0.00"
+                    rotation="80 0 -10"
+                    color="#3a1c0c"></a-cylinder>
+
+        <!-- Rear pair -->
+        <a-cylinder radius="0.012" height="0.35"
+                    position="0.16 0.07 0.16"
+                    rotation="85 0 5"
+                    color="#3a1c0c"></a-cylinder>
+        <a-cylinder radius="0.012" height="0.35"
+                    position="-0.16 0.07 0.16"
+                    rotation="85 0 -5"
+                    color="#3a1c0c"></a-cylinder>
+      </a-entity>
+
+      <!-- Simple sky dome -->
+      <a-sky color="#c7e4ff"></a-sky>
+    </a-scene>
+  </body>
+</html>
