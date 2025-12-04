@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mier met 4 ovalen – A-Frame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #f0f0f0">
+
+      <!-- Camera -->
+      <a-entity position="0 1.5 4">
+        <a-camera></a-camera>
+      </a-entity>
+
+      <!-- “Tekenpapier” als vlak -->
+      <a-plane position="0 1 -2"
+               rotation="-30 0 0"
+               width="4" height="2.5"
+               color="#ffffff"></a-plane>
+
+      <!-- Mier (kop + lijf met 4 ovalen), vlak boven het vlak -->
+      <a-entity id="ant" position="0 1.02 -2">
+
+        <!-- 1: Kop (ovaal) -->
+        <a-sphere radius="0.12"
+                  position="-0.8 0 0"
+                  scale="1.3 1 1"
+                  color="#222222"></a-sphere>
+
+        <!-- 2: Thorax (ovaal) -->
+        <a-sphere radius="0.16"
+                  position="-0.4 0 0"
+                  scale="1.4 1 1"
+                  color="#222222"></a-sphere>
+
+        <!-- 3: Middendeel (smalle ovaal) -->
+        <a-sphere radius="0.10"
+                  position="0.0 0 0"
+                  scale="1.8 0.9 1"
+                  color="#222222"></a-sphere>
+
+        <!-- 4: Achterlijf (grote ovaal) -->
+        <a-sphere radius="0.22"
+                  position="0.6 0 0"
+                  scale="1.8 1.1 1"
+                  color="#222222"></a-sphere>
+
+        <!-- (optioneel) Voelsprieten -->
+        <a-cylinder radius="0.01" height="0.35"
+                    position="-0.87 0.12 0"
+                    rotation="0 0 40"
+                    color="#222222"></a-cylinder>
+        <a-cylinder radius="0.01" height="0.35"
+                    position="-0.73 0.12 0"
+                    rotation="0 0 -40"
+                    color="#222222"></a-cylinder>
+
+        <!-- (optioneel) Poten – heel simpel -->
+        <a-cylinder radius="0.012" height="0.4"
+                    position="-0.4 -0.1 0"
+                    rotation="0 0 40"
+                    color="#222222"></a-cylinder>
+        <a-cylinder radius="0.012" height="0.4"
+                    position="-0.2 -0.1 0"
+                    rotation="0 0 60"
+                    color="#222222"></a-cylinder>
+        <a-cylinder radius="0.012" height="0.4"
+                    position="0.0 -0.1 0"
+                    rotation="0 0 80"
+                    color="#222222"></a-cylinder>
+      </a-entity>
+
+    </a-scene>
+  </body>
+
+</html>
